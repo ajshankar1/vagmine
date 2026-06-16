@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact | Vagmine Overseas Pvt. Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+</head><body>
+<nav class="nav" id="navbar"><div class="nav__inner"><a href="index.html" class="nav__logo"><span class="nav__logo-main">VAGMINE OVERSEAS</span><span class="nav__logo-sub">Pvt. Ltd. — Est. 2010 · Tirunelveli</span></a><ul class="nav__links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="products.html">Products</a></li><li><a href="clients.html">Clients</a></li><li><a href="certifications.html">Certifications</a></li><li><a href="blog.html">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul><div class="nav__actions"><a href="https://wa.me/919313146672" target="_blank" class="btn btn-wa btn-sm"><i class="ti ti-brand-whatsapp"></i>WhatsApp</a><a href="contact.html" class="btn btn-o btn-sm">Get Quote</a></div><button class="nav__burger" id="burger"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html" onclick="closeMobile()">Home</a></li><li><a href="about.html" onclick="closeMobile()">About</a></li><li><a href="products.html" onclick="closeMobile()">Products</a></li><li><a href="clients.html" onclick="closeMobile()">Clients</a></li><li><a href="certifications.html" onclick="closeMobile()">Certifications</a></li><li><a href="blog.html" onclick="closeMobile()">Blog</a></li><li><a href="careers.html" onclick="closeMobile()">Careers</a></li><li><a href="contact.html" onclick="closeMobile()">Contact</a></li></ul><div class="mob-actions"><a href="https://wa.me/919313146672" target="_blank" class="btn btn-wa btn-full"><i class="ti ti-brand-whatsapp"></i>+91 93131 46672</a><a href="contact.html" class="btn btn-o btn-full" onclick="closeMobile()">Get a Quote</a></div></div>
+<div class="overlay" id="overlay" onclick="closeMobile()"></div>
+
+<div class="page-hero"><div class="page-hero__bar"></div><div class="page-hero__wm">HELLO</div><div class="container page-hero__inner reveal"><p class="eyebrow">Get in Touch</p><h1>Contact <span class="text-o">Vagmine Overseas</span></h1><p class="sub">Reach out for product enquiries, custom formulation requests, bulk pricing, or export documentation. We respond within 2 hours.</p></div></div>
+
+<section class="section"><div class="container">
+<div class="contact-wrap reveal">
+  <div>
+    <div class="cinfo-item"><div class="cinfo-icon"><i class="ti ti-phone"></i></div><div><p class="cinfo-lbl">Phone</p><p class="cinfo-val">+91 93131 46672</p></div></div>
+    <div class="cinfo-item"><div class="cinfo-icon"><i class="ti ti-brand-whatsapp"></i></div><div><p class="cinfo-lbl">WhatsApp</p><p class="cinfo-val"><a href="https://wa.me/919313146672" target="_blank">+91 93131 46672</a></p></div></div>
+    <div class="cinfo-item"><div class="cinfo-icon"><i class="ti ti-mail"></i></div><div><p class="cinfo-lbl">Email</p><p class="cinfo-val"><a href="mailto:info@vagmineoverseas.com">info@vagmineoverseas.com</a></p></div></div>
+    <div class="cinfo-item"><div class="cinfo-icon"><i class="ti ti-map-pin"></i></div><div><p class="cinfo-lbl">India Office</p><p class="cinfo-val">B-59, SIPCOT Industrial Growth Centre,<br/>Gangaikondan, Tirunelveli – 627352<br/>Tamil Nadu, India</p></div></div>
+    <div class="cinfo-item"><div class="cinfo-icon"><i class="ti ti-building"></i></div><div><p class="cinfo-lbl">USA Office</p><p class="cinfo-val">Delaware, USA<br/>North American Operations</p></div></div>
+    <a href="https://wa.me/919313146672" target="_blank" class="btn btn-wa btn-full" style="margin-top:1.5rem;"><i class="ti ti-brand-whatsapp"></i>Chat on WhatsApp</a>
+  </div>
+  <form onsubmit="submitForm(event)" style="display:flex;flex-direction:column;gap:.75rem;">
+    <div class="form-row">
+      <input class="form-field" type="text" placeholder="Your Name *" required/>
+      <input class="form-field" type="text" placeholder="Company Name"/>
+    </div>
+    <div class="form-row">
+      <input class="form-field" type="tel" placeholder="Phone / WhatsApp *" required/>
+      <input class="form-field" type="email" placeholder="Email Address *" required/>
+    </div>
+    <input class="form-field" type="text" placeholder="Country"/>
+    <select class="form-field" required>
+      <option value="" disabled selected>Select Product of Interest</option>
+      <option>FRRC</option><option>FRC (Baled)</option><option>FRC-25</option><option>FRC-10 / FRC-12</option>
+      <option>Chopped Friction Cord</option><option>Granulated Friction Rubber</option>
+      <option>Reprocessed Rubber Compound</option><option>Tread Rubber Compounds</option>
+      <option>Industrial Hydraulic Seals</option><option>Pneumatic Rubber Seals</option>
+      <option>Multiple Products</option>
+    </select>
+    <textarea class="form-field" rows="4" placeholder="Your message — quantity required, specifications, delivery location..."></textarea>
+    <button type="submit" class="btn btn-o btn-full"><span id="formBtnText">Send Enquiry →</span></button>
+    <div id="formSuccess" class="form-success" style="display:none;">✓ Enquiry sent! We will respond within 2 hours.</div>
+  </form>
+</div></div></section>
+
+<div class="cert-strip"><div class="container cert-strip__inner"><span class="cert-strip__lbl">Certified</span><div class="cert-strip__items"><span><i class="ti ti-certificate"></i>ISO 9001:2015</span><span><i class="ti ti-certificate"></i>BIS Certified</span><span><i class="ti ti-certificate"></i>MSME Registered</span><span><i class="ti ti-map-pin"></i>SIPCOT Gangaikondan, Tirunelveli</span><span><i class="ti ti-building"></i>Delaware USA Office</span></div></div></div>
+
+<footer class="footer"><div class="container"><div class="footer__inner"><div><p class="footer__logo-main">VAGMINE OVERSEAS</p><p class="footer__logo-sub">Pvt. Ltd.</p><p class="footer__addr">B-59, SIPCOT Industrial Growth Centre<br/>Gangaikondan, Tirunelveli – 627352<br/>Tamil Nadu, India<br/><br/>📞 +91 93131 46672<br/>✉ info@vagmineoverseas.com</p></div><div class="footer__col"><h4>Products</h4><a href="products.html">FRRC</a><a href="products.html">FRC Grades</a><a href="products.html">Tread Compounds</a><a href="products.html">Industrial Seals</a></div><div class="footer__col"><h4>Company</h4><a href="about.html">About Us</a><a href="clients.html">Clients</a><a href="certifications.html">Certifications</a><a href="careers.html">Careers</a></div><div class="footer__col"><h4>Contact</h4><a href="contact.html">Get a Quote</a><a href="mailto:info@vagmineoverseas.com">Email Us</a><a href="https://wa.me/919313146672">WhatsApp</a></div></div></div><div class="footer__bar"><div class="container footer__bar-inner"><span>© 2025 <strong>Vagmine Overseas Pvt. Ltd.</strong> All rights reserved.</span></div></div></footer>
+<a href="https://wa.me/919313146672" target="_blank" class="wa-float"><i class="ti ti-brand-whatsapp"></i></a>
+<div class="ai-widget"><button class="ai-widget__btn" onclick="toggleAI()"><i class="ti ti-robot"></i><span class="ai-badge" id="aiBadge">1</span></button><div class="ai-panel" id="aiPanel"><div class="ai-header"><div class="ai-header-info"><div class="ai-dot"></div><div><strong>Vagmine Assistant</strong><span>AI-powered · Replies instantly</span></div></div><button class="ai-close" onclick="toggleAI()"><i class="ti ti-x"></i></button></div><div class="ai-msgs" id="aiMsgs"><div class="ai-msg ai-msg--bot"><div class="ai-bubble">👋 Need help with your enquiry? Tell me your requirement and I'll help you fill in the right product details!</div></div></div><div class="ai-input-wrap"><input type="text" id="aiInput" placeholder="What product do you need?" onkeydown="handleAIKey(event)"/><button class="ai-send" onclick="sendAI()"><i class="ti ti-send"></i></button></div></div></div>
+<script src="app.js"></script></body></html>
