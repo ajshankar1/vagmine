@@ -4,7 +4,7 @@
 ═══════════════════════════════════════════════════════ */
 
 /* ─── CONFIG ─── */
-const AI_BACKEND = 'https://your-backend.railway.app/chat'; // ← Replace with your Railway URL
+const AI_BACKEND = 'https://vagmine-backend-production.up.railway.app/chat'; // ← Replace with your Railway URL
 
 /* ─── NAV ─── */
 const navbar = document.querySelector('.nav');
@@ -101,9 +101,9 @@ function initGlobe() {
   const canvas = document.getElementById('globeCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  const W = canvas.width = 420;
-  const H = canvas.height = 420;
-  const cx = W / 2, cy = H / 2, R = 190;
+  const W = canvas.width = 360;
+  const H = canvas.height = 360;
+  const cx = W / 2, cy = H / 2, R = 155;
 
   let angle = 0;
 
