@@ -1,295 +1,278 @@
-/* ═══════════════════════════════════════════════════════
-   VAGMINE OVERSEAS — app.js
-   Nav · Scroll Reveal · Counters · Globe · AI Agent
-   AI: Anthropic Claude (direct from browser)
-═══════════════════════════════════════════════════════ */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Vagmine Overseas Pvt. Ltd. | FRRC & FRC Rubber Compound Manufacturers India</title>
+<meta name="description" content="Leading manufacturers of FRRC, FRC & Granulated Friction Rubber in India. ISO 9001:2015 certified. Supplying Korea, China, Sri Lanka, USA. Est. 2010."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.hero{min-height:100vh;display:flex;align-items:center;background:var(--bg);padding:7rem 0 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.hero__bar{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--orange);}
+.hero__wm{position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-family:var(--fh);font-size:clamp(100px,16vw,200px);font-weight:900;color:#161618;letter-spacing:-5px;user-select:none;pointer-events:none;line-height:1;}
+.hero__inner{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;width:100%;}
+.hero__eyebrow{font-family:var(--fm);font-size:.7rem;color:var(--orange);letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;}
+.hero__h1{font-family:var(--fh);font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:1.1rem;text-transform:uppercase;letter-spacing:1px;}
+.hero__sub{font-size:.95rem;color:var(--muted);line-height:1.85;margin-bottom:2rem;max-width:440px;}
+.hero__btns{display:flex;gap:.75rem;flex-wrap:wrap;}
+.hero__trust{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;}
+.hero__trust span{font-family:var(--fm);font-size:.6rem;background:var(--card);border:1px solid var(--border);color:var(--muted);padding:.25rem .6rem;border-radius:2px;letter-spacing:.5px;}
+.hero__trust span b{color:var(--orange);}
+.clients-ticker{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:.75rem 0;}
+.clients-track{display:flex;align-items:center;gap:2.5rem;width:max-content;animation:marquee 25s linear infinite;}
+.clients-track span{font-family:var(--fh);font-size:.85rem;font-weight:700;color:#3a3a3c;text-transform:uppercase;letter-spacing:1.5px;white-space:nowrap;}
+.clients-track .sep{color:#2a2a2c;font-size:.6rem;}
+.hero-right{display:flex;flex-direction:column;align-items:center;gap:1rem;}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;width:100%;}
+.hstat{background:var(--card);border:1px solid var(--border);border-left:2px solid var(--orange);padding:1rem;}
+.hstat__num{font-family:var(--fh);font-size:1.4rem;font-weight:900;color:var(--orange);line-height:1;}
+.hstat__lbl{font-family:var(--fm);font-size:.58rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+@media(max-width:900px){.hero__inner{grid-template-columns:1fr;}.hero__sub{max-width:100%;}.hero-right{order:-1;}}
+@media(max-width:600px){.hero-stats{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
 
-/* ─── AI CONFIG — paste your key here ─── */
-const AI_BACKEND = 'https://vagmine-backend.onrender.com/chat';
-/* ──────────────────────────────────────── */
+<nav class="nav" id="navbar">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-main">VAGMINE OVERSEAS</span>
+      <span class="nav__logo-sub">Pvt. Ltd. — Est. 2010 · Tirunelveli</span>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="clients.html">Clients</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="https://wa.me/919313146672" target="_blank" class="btn btn-wa btn-sm"><i class="ti ti-brand-whatsapp"></i>WhatsApp</a>
+      <a href="contact.html" class="btn btn-o btn-sm">Get Quote</a>
+    </div>
+    <button class="nav__burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
 
-const SYSTEM_PROMPT = `You are Vagmine Assistant, the official AI sales and support agent for Vagmine Overseas Pvt. Ltd., a leading manufacturer of friction rubber compounds based in Tirunelveli, Tamil Nadu, India.
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" onclick="closeMobile()">Home</a></li>
+    <li><a href="about.html" onclick="closeMobile()">About</a></li>
+    <li><a href="products.html" onclick="closeMobile()">Products</a></li>
+    <li><a href="clients.html" onclick="closeMobile()">Clients</a></li>
+    <li><a href="certifications.html" onclick="closeMobile()">Certifications</a></li>
+    <li><a href="blog.html" onclick="closeMobile()">Blog</a></li>
+    <li><a href="careers.html" onclick="closeMobile()">Careers</a></li>
+    <li><a href="contact.html" onclick="closeMobile()">Contact</a></li>
+  </ul>
+  <div class="mob-actions">
+    <a href="https://wa.me/919313146672" target="_blank" class="btn btn-wa btn-full"><i class="ti ti-brand-whatsapp"></i> +91 93131 46672</a>
+    <a href="contact.html" class="btn btn-o btn-full" onclick="closeMobile()">Get a Quote</a>
+  </div>
+</div>
+<div class="overlay" id="overlay" onclick="closeMobile()"></div>
 
-Company: Founded 2010 | Third-generation | 40+ years expertise | 2,400+ MT/year
-Address: B-59, SIPCOT Industrial Growth Centre, Gangaikondan, Tirunelveli-627352, Tamil Nadu
-Phone & WhatsApp: +91 9313146672 | Email: info@vagmineoverseas.com
-Certifications: ISO 9001:2015, BIS Certified, MSME Registered
-USA Office: Delaware | Clients: TVS/Sundaram, Yokohama-ATG, BKT, Nexen, Global Rubber Sri Lanka
-Export: India, Korea, China, Sri Lanka, USA, UAE
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero__bar"></div>
+  <div class="hero__wm" aria-hidden="true">FRRC</div>
+  <div class="container hero__inner">
+    <div class="reveal">
+      <p class="hero__eyebrow">Leading Manufacturers — Tirunelveli, Tamil Nadu · Est. 2010</p>
+      <h1 class="hero__h1">Driving<br/><span class="text-o">Excellence</span><br/>In Rubber</h1>
+      <p class="hero__sub">Third-generation rubber compound manufacturers supplying FRRC, FRC, Granulated Friction Rubber, and Tread Compounds to premier tyre brands across India, Korea, China, Sri Lanka, and the USA.</p>
+      <div class="hero__btns">
+        <a href="products.html" class="btn btn-o btn-lg">Explore Products</a>
+        <a href="contact.html" class="btn btn-ghost btn-lg">Request Quote</a>
+        <a href="https://wa.me/919313146672" target="_blank" class="btn btn-wa btn-lg"><i class="ti ti-brand-whatsapp"></i>WhatsApp</a>
+      </div>
+      <div class="hero__trust">
+        <span><b>ISO</b> 9001:2015</span>
+        <span><b>2400+</b> MT/Year</span>
+        <span><b>40+</b> Yrs Expertise</span>
+        <span><b>5+</b> Countries</span>
+        <span><b>3rd</b> Generation</span>
+      </div>
+    </div>
+    <div class="hero-right reveal reveal-d">
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat__num"><span class="counter" data-target="2400">0</span>+</div><div class="hstat__lbl">MT Annual Capacity</div></div>
+        <div class="hstat"><div class="hstat__num"><span class="counter" data-target="40">0</span>+</div><div class="hstat__lbl">Years Expertise</div></div>
+        <div class="hstat"><div class="hstat__num"><span class="counter" data-target="5">0</span>+</div><div class="hstat__lbl">Export Countries</div></div>
+        <div class="hstat"><div class="hstat__num">ISO</div><div class="hstat__lbl">9001:2015 Certified</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-Products:
-1. FRRC - half to 1 inch granules, quick mill dispersion, solid tyres
-2. FRC Baled - high friction, industrial and off-highway
-3. FRC-25 - Grade 25, commercial vehicle braking
-4. FRC-10/12 - lighter duty, slab or granule
-5. Chopped Friction Cord - brake and clutch reinforcement
-6. Granulated Friction Rubber - 30-45ft rolls, 7mm thick, solid tyres
-7. Reprocessed Rubber Compound - cost-effective industrial
-8. Tread Rubber Compounds - abrasion resistant, commercial retreading
-9. Industrial Hydraulic Seals - high-pressure, custom profiles
-10. Pneumatic Rubber Seals - low friction, air cylinders
+<!-- TRUSTED BY TICKER -->
+<div class="clients-ticker">
+  <div class="clients-track">
+    <span>Sundaram Industries (TVS Group)</span><span class="sep">◆</span>
+    <span>Yokohama-ATG</span><span class="sep">◆</span>
+    <span>BKT Tyres</span><span class="sep">◆</span>
+    <span>Nexen Tyre</span><span class="sep">◆</span>
+    <span>Global Rubber Pvt Ltd</span><span class="sep">◆</span>
+    <span>China Partners</span><span class="sep">◆</span>
+    <span>Sundaram Industries (TVS Group)</span><span class="sep">◆</span>
+    <span>Yokohama-ATG</span><span class="sep">◆</span>
+    <span>BKT Tyres</span><span class="sep">◆</span>
+    <span>Nexen Tyre</span><span class="sep">◆</span>
+    <span>Global Rubber Pvt Ltd</span><span class="sep">◆</span>
+    <span>China Partners</span><span class="sep">◆</span>
+  </div>
+</div>
 
-Be professional, warm, concise (3-4 sentences). After 3 messages, ask for name, company, and contact. Always suggest next step.`;
+<!-- PRODUCT MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>FRRC</span><span class="dot">◆</span><span>FRC</span><span class="dot">◆</span><span>FRC-25</span><span class="dot">◆</span><span>FRC-10/12</span><span class="dot">◆</span><span>Chopped Friction Cord</span><span class="dot">◆</span><span>Granulated Rubber</span><span class="dot">◆</span><span>Tread Compounds</span><span class="dot">◆</span><span>Hydraulic Seals</span><span class="dot">◆</span><span>Pneumatic Seals</span><span class="dot">◆</span>
+    <span>FRRC</span><span class="dot">◆</span><span>FRC</span><span class="dot">◆</span><span>FRC-25</span><span class="dot">◆</span><span>FRC-10/12</span><span class="dot">◆</span><span>Chopped Friction Cord</span><span class="dot">◆</span><span>Granulated Rubber</span><span class="dot">◆</span><span>Tread Compounds</span><span class="dot">◆</span><span>Hydraulic Seals</span><span class="dot">◆</span><span>Pneumatic Seals</span><span class="dot">◆</span>
+  </div>
+</div>
 
-/* ─── NAV ─── */
-const navbar = document.querySelector('.nav');
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobileMenu');
-const overlay = document.getElementById('overlay');
+<!-- PRODUCTS OVERVIEW -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">What We Make</p>
+      <h2 class="sec-title">Our <span class="text-o">Products</span></h2>
+      <p class="sec-desc">Precision-engineered friction rubber compounds and industrial sealing products — in the grade, format, and specification your application demands.</p>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="pcard"><div class="pcard__topbar on"></div><div class="pcard__icon"><i class="ti ti-flame"></i></div><p class="pcard__code">Core Product</p><h3 class="pcard__name">FRRC</h3><p class="pcard__desc">Fiber Reinforced Rubber Compound. ½–1 inch granules with quick mill dispersion. Excellent tack for solid tyre building.</p><div class="pcard__tags"><span class="tag">½–1 inch</span><span class="tag">Quick Dispersion</span><span class="tag">Solid Tyres</span></div><a href="products.html" class="pcard__link">→ Full Specifications</a></div>
+      <div class="pcard"><div class="pcard__topbar on"></div><div class="pcard__icon"><i class="ti ti-hexagon"></i></div><p class="pcard__code">Core Product</p><h3 class="pcard__name">FRC — Baled</h3><p class="pcard__desc">Friction Rubber Compound in baled format. Enhanced durability and friction for demanding industrial and off-highway applications.</p><div class="pcard__tags"><span class="tag">Baled Format</span><span class="tag">High Friction</span><span class="tag">Industrial</span></div><a href="products.html" class="pcard__link">→ Full Specifications</a></div>
+      <div class="pcard"><div class="pcard__topbar"></div><div class="pcard__icon"><i class="ti ti-layers"></i></div><p class="pcard__code">Tread</p><h3 class="pcard__name">Tread Compounds</h3><p class="pcard__desc">High-quality tread rubber compounds with abrasion resistance, high flexibility, and superior tear strength for long service life.</p><div class="pcard__tags"><span class="tag">Abrasion Resistant</span><span class="tag">High Flexibility</span><span class="tag">Tyre Tread</span></div><a href="products.html" class="pcard__link">→ Full Specifications</a></div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;" class="reveal"><a href="products.html" class="btn btn-o btn-lg">View All 9 Products →</a></div>
+  </div>
+</section>
 
-window.addEventListener('scroll', () => {
-  navbar?.classList.toggle('scrolled', window.scrollY > 40);
-  updateActiveNav();
-});
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="container stats-band__inner">
+    <div class="sstat"><div class="sstat__num"><span class="counter" data-target="2400">0</span>+</div><div class="sstat__lbl">MT Annual Capacity</div></div>
+    <div class="sstat-div"></div>
+    <div class="sstat"><div class="sstat__num"><span class="counter" data-target="40">0</span>+</div><div class="sstat__lbl">Years Expertise</div></div>
+    <div class="sstat-div"></div>
+    <div class="sstat"><div class="sstat__num"><span class="counter" data-target="5">0</span>+</div><div class="sstat__lbl">Countries Supplied</div></div>
+    <div class="sstat-div"></div>
+    <div class="sstat"><div class="sstat__num"><span class="counter" data-target="6">0</span></div><div class="sstat__lbl">Major Clients</div></div>
+    <div class="sstat-div"></div>
+    <div class="sstat"><div class="sstat__num">ISO</div><div class="sstat__lbl">9001:2015</div></div>
+  </div>
+</div>
 
-burger?.addEventListener('click', () => {
-  const open = mobileMenu.classList.toggle('open');
-  overlay.classList.toggle('active', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-});
+<!-- GLOBE SECTION -->
+<section class="globe-section">
+  <div class="container">
+    <div class="sec-head reveal" style="margin-bottom:2.5rem;">
+      <p class="eyebrow">Global Reach</p>
+      <h2 class="sec-title">Supplying to <span class="text-o">5+ Countries</span></h2>
+      <p class="sec-desc">From our SIPCOT facility in Tirunelveli, we export to premier tyre manufacturers across Asia, the Middle East, and North America.</p>
+    </div>
+    <div class="globe-wrap">
+      <div class="reveal">
+        <div class="globe-legend">
+          <div class="globe-dot home">Tirunelveli, India — Manufacturing HQ</div>
+          <div class="globe-dot">South Korea — Nexen Tyre</div>
+          <div class="globe-dot">China — Multiple Tyre Manufacturers</div>
+          <div class="globe-dot">Sri Lanka — Global Rubber Pvt Ltd</div>
+          <div class="globe-dot">USA — Delaware Office (North America)</div>
+          <div class="globe-dot">UAE — Export Market</div>
+        </div>
+        <div class="globe-info" style="margin-top:1.5rem;">
+          <div class="globe-stat"><div class="globe-stat__num">2010</div><div class="globe-stat__lbl">Year Founded</div></div>
+          <div class="globe-stat"><div class="globe-stat__num">3rd</div><div class="globe-stat__lbl">Generation Mgmt</div></div>
+          <div class="globe-stat"><div class="globe-stat__num">2400+</div><div class="globe-stat__lbl">MT/Year</div></div>
+          <div class="globe-stat"><div class="globe-stat__num">USA</div><div class="globe-stat__lbl">Delaware Office</div></div>
+        </div>
+      </div>
+      <div class="globe-canvas-wrap reveal reveal-d">
+        <canvas id="globeCanvas" width="320" height="320"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
 
-function closeMobile() {
-  mobileMenu?.classList.remove('open');
-  overlay?.classList.remove('active');
-  document.body.style.overflow = '';
-}
+<!-- WHY CHOOSE -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Why Choose Vagmine</p>
+      <h2 class="sec-title">Built on <span class="text-o">Expertise</span></h2>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="feat-card"><i class="ti ti-award"></i><h4>40+ Years Expertise</h4><p>Third-generation management with four decades of rubber industry knowledge in every batch we produce.</p></div>
+      <div class="feat-card"><i class="ti ti-certificate"></i><h4>ISO 9001:2015 Quality</h4><p>Every batch certified. Consistent, reliable compounds meeting international standards — no exceptions.</p></div>
+      <div class="feat-card"><i class="ti ti-package"></i><h4>2400+ MT Capacity</h4><p>Scale with your demand — from trial samples to large-scale international orders without compromise.</p></div>
+      <div class="feat-card"><i class="ti ti-world"></i><h4>Global Trusted Clients</h4><p>Trusted by Yokohama-ATG, BKT, Nexen, Sundaram (TVS Group) across 5 countries since 2010.</p></div>
+      <div class="feat-card"><i class="ti ti-settings"></i><h4>Multiple Formats</h4><p>Granulated, baled, long-sheeted, preforms — supplied in the exact format your production line needs.</p></div>
+      <div class="feat-card"><i class="ti ti-leaf"></i><h4>Eco-Friendly R&D</h4><p>Sustainable production compounds that enhance performance while reducing environmental impact.</p></div>
+    </div>
+  </div>
+</section>
 
-function updateActiveNav() {
-  const sections = document.querySelectorAll('section[id]');
-  let current = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
-  document.querySelectorAll('.nav__links a').forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href')?.includes(current));
-  });
-}
+<!-- CERT STRIP -->
+<div class="cert-strip">
+  <div class="container cert-strip__inner">
+    <span class="cert-strip__lbl">Certified</span>
+    <div class="cert-strip__items">
+      <span><i class="ti ti-certificate"></i>ISO 9001:2015</span>
+      <span><i class="ti ti-certificate"></i>BIS Certified</span>
+      <span><i class="ti ti-certificate"></i>MSME Registered</span>
+      <span><i class="ti ti-map-pin"></i>SIPCOT Gangaikondan, Tirunelveli</span>
+      <span><i class="ti ti-building"></i>Delaware, USA Office</span>
+    </div>
+  </div>
+</div>
 
-document.addEventListener('DOMContentLoaded', () => {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav__links a').forEach(a => {
-    const href = a.getAttribute('href') || '';
-    if (href.endsWith(path) || (path === '' && href.includes('index'))) a.classList.add('active');
-  });
-});
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="container cta-strip__inner">
+    <div>
+      <h2 class="cta-strip__title">Ready to source from India's most trusted friction rubber manufacturer?</h2>
+      <p class="cta-strip__sub">Custom grades · Bulk pricing · Export documentation · 2hr response</p>
+    </div>
+    <div class="cta-strip__btns">
+      <a href="contact.html" class="btn btn-dark btn-lg">Request a Quote</a>
+      <a href="https://wa.me/919313146672" target="_blank" class="btn btn-ghost btn-lg"><i class="ti ti-brand-whatsapp"></i>WhatsApp</a>
+    </div>
+  </div>
+</div>
 
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 72, behavior: 'smooth' }); }
-  });
-});
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container"><div class="footer__inner">
+    <div>
+      <p class="footer__logo-main">VAGMINE OVERSEAS</p>
+      <p class="footer__logo-sub">Pvt. Ltd.</p>
+      <p class="footer__addr">B-59, SIPCOT Industrial Growth Centre<br/>Gangaikondan, Tirunelveli – 627352<br/>Tamil Nadu, India<br/><br/>📞 +91 93131 46672<br/>✉ info@vagmineoverseas.com<br/><br/>🏢 Delaware, USA (North America Office)</p>
+      <div class="footer-social">
+        <a href="#"><i class="ti ti-brand-linkedin"></i></a>
+        <a href="https://wa.me/919313146672" target="_blank"><i class="ti ti-brand-whatsapp"></i></a>
+        <a href="mailto:info@vagmineoverseas.com"><i class="ti ti-mail"></i></a>
+      </div>
+    </div>
+    <div class="footer__col"><h4>Products</h4><a href="products.html">FRRC</a><a href="products.html">FRC (Baled)</a><a href="products.html">FRC-25</a><a href="products.html">FRC-10/12</a><a href="products.html">Chopped Friction Cord</a><a href="products.html">Granulated Rubber</a><a href="products.html">Tread Compounds</a><a href="products.html">Seals</a></div>
+    <div class="footer__col"><h4>Company</h4><a href="about.html">About Us</a><a href="clients.html">Our Clients</a><a href="certifications.html">Certifications</a><a href="blog.html">Blog</a><a href="careers.html">Careers</a></div>
+    <div class="footer__col"><h4>Contact</h4><a href="contact.html">Get a Quote</a><a href="mailto:info@vagmineoverseas.com">Email Us</a><a href="https://wa.me/919313146672" target="_blank">WhatsApp</a><h4 style="margin-top:1.25rem;">Connect</h4><a href="#">LinkedIn</a><a href="#">IndiaMART</a><a href="#">TradeIndia</a></div>
+  </div></div>
+  <div class="footer__bar"><div class="container footer__bar-inner">
+    <span>© 2025 <strong>Vagmine Overseas Pvt. Ltd.</strong> All rights reserved. | Tirunelveli, Tamil Nadu, India</span>
+    <span>FRRC · FRC · Tread Compounds · Hydraulic & Pneumatic Seals</span>
+  </div></div>
+</footer>
 
-/* ─── SCROLL REVEAL ─── */
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+<a href="https://wa.me/919313146672" target="_blank" class="wa-float" title="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
 
-/* ─── COUNTERS ─── */
-const counted = new Set();
-const countObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting && !counted.has(e.target)) {
-      counted.add(e.target);
-      const target = parseInt(e.target.dataset.target, 10);
-      let cur = 0; const step = target / (1800 / 16);
-      const t = setInterval(() => {
-        cur += step; if (cur >= target) { cur = target; clearInterval(t); }
-        e.target.textContent = Math.floor(cur);
-      }, 16);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.counter').forEach(el => countObs.observe(el));
 
-/* ─── FORM ─── */
-function submitForm(e) {
-  e.preventDefault();
-  const btn = document.getElementById('formBtnText');
-  const succ = document.getElementById('formSuccess');
-  if (btn) btn.textContent = 'Sending...';
-  setTimeout(() => {
-    if (btn) btn.textContent = 'Send Enquiry →';
-    if (succ) { succ.style.display = 'block'; setTimeout(() => succ.style.display = 'none', 5000); }
-    e.target.reset();
-  }, 1200);
-}
-
-/* ═══════════════════════════════════════════
-   GLOBE ANIMATION
-═══════════════════════════════════════════ */
-function initGlobe() {
-  const canvas = document.getElementById('globeCanvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const W = canvas.width = 320;
-  const H = canvas.height = 320;
-  const cx = W / 2, cy = H / 2, R = 140;
-  let angle = 0;
-
-  const countries = [
-    { name: 'India (HQ)', lat: 8.9, lon: 77.7, home: true },
-    { name: 'South Korea', lat: 37.5, lon: 127.0, home: false },
-    { name: 'China', lat: 35.0, lon: 105.0, home: false },
-    { name: 'Sri Lanka', lat: 7.9, lon: 80.7, home: false },
-    { name: 'USA', lat: 39.0, lon: -98.0, home: false },
-    { name: 'UAE', lat: 24.0, lon: 54.0, home: false },
-  ];
-
-  function latLonToXYZ(lat, lon, rot) {
-    const phi = (90 - lat) * Math.PI / 180;
-    const theta = (lon + rot) * Math.PI / 180;
-    return { x: R * Math.sin(phi) * Math.cos(theta), y: -R * Math.cos(phi), z: R * Math.sin(phi) * Math.sin(theta) };
-  }
-
-  function drawGlobe(rot) {
-    ctx.clearRect(0, 0, W, H);
-    const grd = ctx.createRadialGradient(cx, cy, R * 0.3, cx, cy, R * 1.2);
-    grd.addColorStop(0, 'rgba(249,115,22,0.04)');
-    grd.addColorStop(1, 'rgba(15,15,16,0)');
-    ctx.fillStyle = grd; ctx.fillRect(0, 0, W, H);
-    const sGrd = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, R * 0.1, cx, cy, R);
-    sGrd.addColorStop(0, 'rgba(30,30,32,0.9)'); sGrd.addColorStop(1, 'rgba(14,14,16,0.95)');
-    ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fillStyle = sGrd; ctx.fill();
-    for (let lat = -60; lat <= 60; lat += 30) {
-      const phi = (90 - lat) * Math.PI / 180; const r = R * Math.sin(phi); const y = -R * Math.cos(phi);
-      ctx.beginPath(); ctx.ellipse(cx, cy + y, r, r * 0.15, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(249,115,22,0.08)'; ctx.lineWidth = 0.7; ctx.stroke();
-    }
-    for (let lon = 0; lon < 180; lon += 30) {
-      const theta = (lon + rot) * Math.PI / 180;
-      ctx.beginPath(); ctx.ellipse(cx, cy, R, R * Math.abs(Math.cos(theta)), theta, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(249,115,22,0.07)'; ctx.lineWidth = 0.7; ctx.stroke();
-    }
-    ctx.beginPath(); ctx.ellipse(cx, cy, R, R * 0.15, 0, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(249,115,22,0.18)'; ctx.lineWidth = 1; ctx.stroke();
-    const home = countries[0]; const hPos = latLonToXYZ(home.lat, home.lon, rot);
-    countries.slice(1).forEach(c => {
-      const cPos = latLonToXYZ(c.lat, c.lon, rot);
-      if (hPos.z > 0 && cPos.z > 0) {
-        const hp = { px: cx + hPos.x, py: cy + hPos.y }; const cp = { px: cx + cPos.x, py: cy + cPos.y };
-        ctx.beginPath(); ctx.moveTo(hp.px, hp.py);
-        ctx.quadraticCurveTo((hp.px + cp.px) / 2, (hp.py + cp.py) / 2 - 50, cp.px, cp.py);
-        ctx.strokeStyle = 'rgba(249,115,22,0.3)'; ctx.lineWidth = 1.2; ctx.setLineDash([4, 4]); ctx.stroke(); ctx.setLineDash([]);
-      }
-    });
-    countries.forEach(c => {
-      const pos = latLonToXYZ(c.lat, c.lon, rot);
-      if (pos.z > -R * 0.2) {
-        const px = cx + pos.x, py = cy + pos.y;
-        const alpha = Math.max(0, (pos.z + R * 0.2) / (R * 1.2));
-        if (c.home) {
-          const pulse = 0.6 + 0.4 * Math.sin(Date.now() / 400);
-          ctx.beginPath(); ctx.arc(px, py, 10 * pulse, 0, Math.PI * 2); ctx.fillStyle = `rgba(249,115,22,${0.15 * alpha})`; ctx.fill();
-          ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2); ctx.fillStyle = `rgba(255,255,255,${alpha})`; ctx.fill();
-        } else {
-          ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2); ctx.fillStyle = `rgba(249,115,22,${alpha})`; ctx.fill();
-        }
-        if (pos.z > 0 && alpha > 0.5) {
-          ctx.font = `bold 9px Inter, sans-serif`; ctx.fillStyle = `rgba(229,231,235,${alpha})`; ctx.textAlign = 'center';
-          ctx.fillText(c.name, px, py - 10);
-        }
-      }
-    });
-    const shGrd = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.35, 0, cx, cy, R);
-    shGrd.addColorStop(0, 'rgba(255,255,255,0.05)'); shGrd.addColorStop(1, 'rgba(0,0,0,0.2)');
-    ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fillStyle = shGrd; ctx.fill();
-    ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.strokeStyle = 'rgba(249,115,22,0.2)'; ctx.lineWidth = 1.5; ctx.stroke();
-  }
-
-  function animate() { angle += 0.15; drawGlobe(angle); requestAnimationFrame(animate); }
-  animate();
-}
-
-/* ═══════════════════════════════════════════
-   AI AGENT — Direct Anthropic API
-═══════════════════════════════════════════ */
-let aiMsgs = [], aiOpen = false, aiTyping = false, badgeDone = false;
-
-function toggleAI() {
-  const panel = document.getElementById('aiPanel');
-  const icon = document.querySelector('.ai-widget__btn i');
-  const badge = document.getElementById('aiBadge');
-  aiOpen = !aiOpen;
-  if (aiOpen) {
-    panel.classList.add('open'); panel.style.display = 'flex';
-    if (icon) icon.className = 'ti ti-x';
-    if (badge) badge.style.display = 'none';
-    badgeDone = true;
-    setTimeout(() => { const m = document.getElementById('aiMsgs'); if (m) m.scrollTop = m.scrollHeight; }, 50);
-  } else {
-    panel.classList.remove('open');
-    if (icon) icon.className = 'ti ti-robot';
-    setTimeout(() => { if (!aiOpen) panel.style.display = 'none'; }, 250);
-  }
-}
-
-function quickReply(text) { document.getElementById('aiQuick')?.remove(); addUserMsg(text); getAIReply(text); }
-function handleAIKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendAI(); } }
-function sendAI() {
-  const inp = document.getElementById('aiInput'); const text = inp?.value.trim();
-  if (!text || aiTyping) return; inp.value = '';
-  document.getElementById('aiQuick')?.remove(); addUserMsg(text); getAIReply(text);
-}
-function addUserMsg(text) {
-  aiMsgs.push({ role: 'user', content: text });
-  const msgs = document.getElementById('aiMsgs');
-  const d = document.createElement('div'); d.className = 'ai-msg ai-msg--user';
-  d.innerHTML = `<div class="ai-bubble">${esc(text)}</div>`;
-  msgs?.appendChild(d); if (msgs) msgs.scrollTop = msgs.scrollHeight;
-}
-function addBotMsg(text) {
-  const msgs = document.getElementById('aiMsgs');
-  const d = document.createElement('div'); d.className = 'ai-msg ai-msg--bot';
-  d.innerHTML = `<div class="ai-bubble">${fmtAI(text)}</div>`;
-  msgs?.appendChild(d); if (msgs) msgs.scrollTop = msgs.scrollHeight;
-}
-function showTyping() {
-  const msgs = document.getElementById('aiMsgs');
-  const d = document.createElement('div'); d.className = 'ai-msg ai-msg--bot'; d.id = 'aiTyping';
-  d.innerHTML = `<div class="ai-typing"><span></span><span></span><span></span></div>`;
-  msgs?.appendChild(d); if (msgs) msgs.scrollTop = msgs.scrollHeight;
-}
-function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function fmtAI(s) { return esc(s).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>'); }
-
-async function getAIReply(text) {
-  aiTyping = true;
-  const sendBtn = document.querySelector('.ai-send');
-  if (sendBtn) sendBtn.style.opacity = '.5';
-  showTyping();
-  try {
-    const res = await fetch(AI_BACKEND, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ system: SYSTEM_PROMPT, messages: aiMsgs })
-    });
-    document.getElementById('aiTyping')?.remove();
-    if (!res.ok) throw new Error('API error');
-    const data = await res.json();
-    const reply = data.reply || 'Please contact us at +91 9313146672';
-    aiMsgs.push({ role: 'assistant', content: reply });
-    addBotMsg(reply);
-    if (aiMsgs.filter(m => m.role === 'user').length === 3) {
-      setTimeout(() => {
-        const nudge = 'To arrange a formal quote or callback, could you share your **name, company, and contact number**? 😊';
-        aiMsgs.push({ role: 'assistant', content: nudge });
-        addBotMsg(nudge);
-      }, 900);
-    }
-  } catch {
-    document.getElementById('aiTyping')?.remove();
-    addBotMsg('Having trouble connecting. Please reach us:\n📞 **+91 93131 46672**\n✉ **info@vagmineoverseas.com**');
-  } finally {
-    aiTyping = false;
-    if (sendBtn) sendBtn.style.opacity = '1';
-    const msgs = document.getElementById('aiMsgs');
-    if (msgs) msgs.scrollTop = msgs.scrollHeight;
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  initGlobe();
-  setTimeout(() => {
-    if (!badgeDone) { const b = document.getElementById('aiBadge'); if (b) b.style.display = 'flex'; }
-  }, 4000);
-});
+<script src="app.js"></script>
+</body>
+</html>
