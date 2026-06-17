@@ -5,7 +5,7 @@
 ═══════════════════════════════════════════════════════ */
 
 /* ─── AI CONFIG — paste your key here ─── */
-const ANTHROPIC_KEY = 'YOUR_API_KEY_HERE'; // ← paste key here
+const AI_BACKEND = 'https://vagmine-backend.onrender.com/chat';
 /* ──────────────────────────────────────── */
 
 const SYSTEM_PROMPT = `You are Vagmine Assistant, the official AI sales and support agent for Vagmine Overseas Pvt. Ltd., a leading manufacturer of friction rubber compounds based in Tirunelveli, Tamil Nadu, India.
@@ -258,25 +258,15 @@ async function getAIReply(text) {
   if (sendBtn) sendBtn.style.opacity = '.5';
   showTyping();
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch(AI_BACKEND, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': ANTHROPIC_KEY,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-allow-browser': 'true'
-      },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 400,
-        system: SYSTEM_PROMPT,
-        messages: aiMsgs
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ system: SYSTEM_PROMPT, messages: aiMsgs })
     });
     document.getElementById('aiTyping')?.remove();
     if (!res.ok) throw new Error('API error');
     const data = await res.json();
-    const reply = data.content?.[0]?.text || 'Please contact us at +91 9313146672';
+    const reply = data.reply || 'Please contact us at +91 9313146672';
     aiMsgs.push({ role: 'assistant', content: reply });
     addBotMsg(reply);
     if (aiMsgs.filter(m => m.role === 'user').length === 3) {
