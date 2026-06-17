@@ -15,7 +15,7 @@
 .hero__wm{position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-family:var(--fh);font-size:clamp(100px,16vw,200px);font-weight:900;color:#161618;letter-spacing:-5px;user-select:none;pointer-events:none;line-height:1;}
 .hero__inner{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;width:100%;}
 .hero__eyebrow{font-family:var(--fm);font-size:.7rem;color:var(--orange);letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;}
-.hero__h1{font-family:var(--fh);font-size:clamp(2.8rem,5vw,4.2rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:1.1rem;text-transform:uppercase;letter-spacing:1px;}
+.hero__h1{font-family:var(--fh);font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:1.1rem;text-transform:uppercase;letter-spacing:1px;}
 .hero__sub{font-size:.95rem;color:var(--muted);line-height:1.85;margin-bottom:2rem;max-width:440px;}
 .hero__btns{display:flex;gap:.75rem;flex-wrap:wrap;}
 .hero__trust{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;}
@@ -28,7 +28,7 @@
 .hero-right{display:flex;flex-direction:column;align-items:center;gap:1rem;}
 .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;width:100%;}
 .hstat{background:var(--card);border:1px solid var(--border);border-left:2px solid var(--orange);padding:1rem;}
-.hstat__num{font-family:var(--fh);font-size:1.8rem;font-weight:900;color:var(--orange);line-height:1;}
+.hstat__num{font-family:var(--fh);font-size:1.4rem;font-weight:900;color:var(--orange);line-height:1;}
 .hstat__lbl{font-family:var(--fm);font-size:.58rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
 @media(max-width:900px){.hero__inner{grid-template-columns:1fr;}.hero__sub{max-width:100%;}.hero-right{order:-1;}}
 @media(max-width:600px){.hero-stats{grid-template-columns:1fr 1fr;}}
@@ -270,28 +270,6 @@
 
 <a href="https://wa.me/919313146672" target="_blank" class="wa-float" title="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
 
-<div class="ai-widget">
-  <button class="ai-widget__btn" onclick="toggleAI()" title="Vagmine Assistant"><i class="ti ti-robot"></i><span class="ai-badge" id="aiBadge">1</span></button>
-  <div class="ai-panel" id="aiPanel">
-    <div class="ai-header">
-      <div class="ai-header-info"><div class="ai-dot"></div><div><strong>Vagmine Assistant</strong><span>AI-powered · Replies instantly</span></div></div>
-      <button class="ai-close" onclick="toggleAI()"><i class="ti ti-x"></i></button>
-    </div>
-    <div class="ai-msgs" id="aiMsgs">
-      <div class="ai-msg ai-msg--bot"><div class="ai-bubble">👋 Hello! I'm Vagmine Assistant — your guide to our rubber compound products.<br/><br/>We manufacture FRRC, FRC, Tread Compounds, and more. How can I help you today?</div></div>
-      <div class="ai-quick" id="aiQuick">
-        <button onclick="quickReply('Tell me about FRRC')">FRRC</button>
-        <button onclick="quickReply('What FRC grades do you make?')">FRC Grades</button>
-        <button onclick="quickReply('I need tread rubber compounds')">Tread Compounds</button>
-        <button onclick="quickReply('I want to request a quote')">Get Quote</button>
-      </div>
-    </div>
-    <div class="ai-input-wrap">
-      <input type="text" id="aiInput" placeholder="Ask about products, specs, pricing..." onkeydown="handleAIKey(event)"/>
-      <button class="ai-send" onclick="sendAI()"><i class="ti ti-send"></i></button>
-    </div>
-  </div>
-</div>
 
 <script src="app.js"></script>
 </body>
